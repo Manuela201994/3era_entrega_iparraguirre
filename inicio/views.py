@@ -45,4 +45,5 @@ def lista_adoptantes(request):
         print('Lamentablemente no estás en nuestra base de datos')
     print(nombre_a_buscar)
     return render(request, 'inicio/info_adoptantes.html', {'formulario': formulario})
+
  

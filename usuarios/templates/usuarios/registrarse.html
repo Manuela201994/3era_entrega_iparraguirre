@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Registrate</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Registrate para ver nuestros perritos en adopción
+Adoptar un perro adulto es uno de los actos más nobles que una persona puede hacer por los animales.
+{% endblock h1_header %}
+
+{% block contenido %}
+<form action="{% url 'usuarios:registrarse' %}" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ formulario }}
+    </table>
+    <button>Registrarme</button>
+</form>
+{% endblock contenido %}
+

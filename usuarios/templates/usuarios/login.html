@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>login</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Login
+Adoptar un perro adulto es uno de los actos más nobles que una persona puede hacer por los animales.
+{% endblock h1_header %}
+
+{% block contenido %}
+<form action="{% url 'usuarios:login' %}" method="POST">
+    {% csrf_token %}
+    <table>
+        {{ formulario }}
+    </table>
+    <button>Login</button>
+</form>
+{% endblock contenido %}
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Edición de perfil</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+Editá tu perfil dentro de nuestra página web
+{% endblock h1_header %}
+
+{% block contenido %}
+<form action="{% url 'usuarios:edicion_perfil' %}" method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button>Guardar cambios</button>
+    <button type='button'><a href={% url 'usuarios:modificar_pass' %}>Cambiar contraseña</a></button>
+</form>
+{% endblock contenido %}
+

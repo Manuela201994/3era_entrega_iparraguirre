@@ -4,7 +4,7 @@ from django.db import models
 
 class Adoptantes(models.Model):
     nombre =  models.CharField(max_length=20)
-    edad = models.IntegerField()
-    telefono =  models.IntegerField()
-    mensaje = models.DateField(null=True)
+    edad = models.CharField(max_length=3)
+    telefono = models.CharField(max_length=20)
+    mensaje = models.CharField(max_length=100)
     
