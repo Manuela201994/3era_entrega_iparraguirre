@@ -45,13 +45,9 @@ def registrarse(request):
 
 @login_required
 def edicion_perfil(request):
-    
-    request.user.InfoExtra.avatar
-    info_extra_user = request.user.InfoExtra
-    
-    formulario=MiFormularioDePerfil
+    info_extra_user = request.user.infoextra
     if request.method == 'POST':
-        formulario = MiFormularioDePerfil(request.POST, instance=request.user)
+        formulario = MiFormularioDePerfil(request.POST, request.FILES, instance=request.user)
         if formulario.is_valid():
             
             avatar = formulario.cleaned_data.get('avatar')
@@ -62,9 +58,8 @@ def edicion_perfil(request):
             formulario.save()
             return redirect('inicio:inicio')
     else:
-        return render(request, 'usuarios/edicion_perfil.html', {'formulario':formulario})
-        
-    formulario = MiFormularioDePerfil(initial={'avatar': request.user.InfoExtra.avatar},instance=request.user)
+        formulario = MiFormularioDePerfil(initial={'avatar': info_extra_user.avatar}, instance=request.user)
+    
     return render(request, 'usuarios/edicion_perfil.html', {'formulario': formulario})
 
 class ModificarPass(LoginRequiredMixin, PasswordChangeView):

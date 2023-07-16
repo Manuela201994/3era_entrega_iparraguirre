@@ -46,4 +46,6 @@ def lista_adoptantes(request):
     print(nombre_a_buscar)
     return render(request, 'inicio/info_adoptantes.html', {'formulario': formulario})
 
+def sobre_nosotros(request):
+    return render(request, 'inicio/sobre_nosotros.html')
  

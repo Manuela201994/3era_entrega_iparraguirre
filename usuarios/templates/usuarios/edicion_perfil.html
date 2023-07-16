@@ -9,7 +9,7 @@ Editá tu perfil dentro de nuestra página web
 {% endblock h1_header %}
 
 {% block contenido %}
-<form action="{% url 'usuarios:edicion_perfil' %}" method="POST">
+<form action={% url 'usuarios:edicion_perfil' %} method="POST" enctype='multipart/from-data'>
     {% csrf_token %}
     <table>
         {{formulario}}
