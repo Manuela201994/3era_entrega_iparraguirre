@@ -2,6 +2,8 @@
 
 {%block title_head%}
 <title>¿Querés chequear si estás en nuestra base de datos?</title>
+
+<title>Lista de interesados en adoptar</title>
 {%endblock title_head%}
 
 {%block h1_header%}
@@ -13,6 +15,7 @@ Adoptar un perro adulto es uno de los actos más nobles que una persona puede ha
     <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" href={% url 'inicio:lista_adoptantes'%}>¿Estás en nuestra base de datos?</a></li>
 </button>
 <form action="" method="get">
+    {{formulario}}
     <button>Buscar</button>
 </form>
 {%endblock contenido%}
