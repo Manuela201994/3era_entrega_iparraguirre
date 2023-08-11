@@ -16,7 +16,7 @@ def info_adoptantes(request):
         formulario = info_adoptantes_formulario(request.POST)
         if formulario.is_valid():
             info = formulario.cleaned_data
-            adoptantes = Adoptantes(nombre=info['nombre'], edad=info['edad'], mensaje=info['mensaje'],)
+            adoptantes = Adoptantes(nombre=info['nombre'], edad=info['edad'], mensaje=info['mensaje'], fecha=info['fecha'], foto=info['foto'])
             adoptantes.save()
             nota = 'Gracias por elegir adoptar'
         else:

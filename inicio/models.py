@@ -7,4 +7,6 @@ class Adoptantes(models.Model):
     edad = models.CharField(max_length=3)
     telefono = models.CharField(max_length=20)
     mensaje = models.CharField(max_length=100)
+    fecha = models.DateField()
+    foto = models.FileField(upload_to='fotos_adoptantes/')
     
