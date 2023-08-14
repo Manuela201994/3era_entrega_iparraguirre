@@ -27,10 +27,14 @@ def info_adoptantes(request):
     return render(request, 'inicio/info_adoptantes.html', {'formulario': formulario})
 
 def lista_adoptantes(request):
-    return render (request, 'inicio/lista_adoptantes.html')
+    formulario = buscar_adoptantes_fomulario(request.GET)
+    if formulario.is_valid():
+        nombre_a_buscar = formulario.cleaned_data['nombre']
+    else:
+        ('no es válido')
+     print(nombre_a_buscar)
+     
+    return render (request, 'inicio/lista_adoptantes.html', {'formulario': formulario})
 
 def sobre_nosotros(request):
-
-    formulario = buscar_adoptantes_fomulario()
-    return render(request, 'inicio/sobre_nosotros.html'), {'formulario': formulario}
- 
+    return render(request, 'inicio/sobre_nosotros.html')
