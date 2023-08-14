@@ -9,4 +9,4 @@ class info_adoptantes_formulario(forms.Form):
     foto = forms.FileField()
     
 class buscar_adoptantes_fomulario(forms.Form):
-    nombre =  forms.CharField(max_length=20, required=False)
+    nombre =  forms.CharField(max_length=20 )

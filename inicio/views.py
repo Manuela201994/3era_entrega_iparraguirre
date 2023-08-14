@@ -18,6 +18,7 @@ def info_adoptantes(request):
             info = formulario.cleaned_data
             adoptantes = Adoptantes(nombre=info['nombre'], edad=info['edad'], mensaje=info['mensaje'], fecha=info['fecha'])
             adoptantes.save()
+            return render (request, 'inicio/lista_adoptantes.html')
             nota = 'Gracias por elegir adoptar'
         else:
             return render(request, 'inicio/info_adoptantes.html', {'formulario':formulario})
@@ -29,5 +30,7 @@ def lista_adoptantes(request):
     return render (request, 'inicio/lista_adoptantes.html')
 
 def sobre_nosotros(request):
-    return render(request, 'inicio/sobre_nosotros.html')
+
+    formulario = buscar_adoptantes_fomulario()
+    return render(request, 'inicio/sobre_nosotros.html'), {'formulario': formulario}
  
