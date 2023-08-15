@@ -1,7 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from inicio.forms import info_adoptantes_formulario
-from inicio.forms import buscar_adoptantes_fomulario, ModificarAdoptanteFormulario
+from inicio.forms import info_adoptantes_formulario, buscar_adoptantes_fomulario, ModificarAdoptanteFormulario
 from inicio.models import Adoptantes
 
 # Create your views here.
@@ -30,7 +29,7 @@ def lista_adoptantes(request):
     formulario = Adoptantes(request.GET)
     if formulario.is_valid():
         nombre_a_buscar = formulario.cleaned_data['nombre']
-        listado_adoptantes = info_adoptantes.objects.filter(nombre_icontains=nombre_a_buscar)
+        listado_adoptantes = Adoptantes.objects.filter(nombre__icontains=nombre_a_buscar)
     else:
         ('no es válido')
     print(nombre_a_buscar)
@@ -49,7 +48,7 @@ def modificar_adoptantes(request, adoptante_id):
             info = formulario.cleaned_data
             adoptante_a_modificar = info['edad']
             adoptante_a_modificar.save()
-            return redirect('inicio:lista_adoptantes')
+            return render('inicio:lista_adoptantes')
     else:
         return render(request, 'inicio/modificar_adoptantes.html', {'formulario': formulario})
     
