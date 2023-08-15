@@ -10,3 +10,6 @@ class info_adoptantes_formulario(forms.Form):
     
 class buscar_adoptantes_fomulario(forms.Form):
     nombre =  forms.CharField(max_length=20, required=False)
+    
+class ModificarAdoptanteFormulario(forms.Form):
+    edad = forms.IntegerField()

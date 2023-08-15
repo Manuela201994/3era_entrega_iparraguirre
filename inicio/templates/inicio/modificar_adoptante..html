@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{%block title_head%}
+<title>Modificá tus datos</title>
+{%endblock title_head%}
+
+{%block h1_header%}
+Tenés la opción de actualizar tu edad en nuestros formularios de interesados en adoptar
+{%endblock h1_header%}
+
+{%block contenido%}
+
+<p>{{mensaje}}</p>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button>Modificar</button>
+</form>
+{%endblock contenido%}

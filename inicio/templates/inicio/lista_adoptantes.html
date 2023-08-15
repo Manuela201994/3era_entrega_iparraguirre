@@ -18,4 +18,6 @@ Adoptar un perro adulto es uno de los actos más nobles que una persona puede ha
     {{buscar_adoptantes_fomulario}}
     <button>Buscar</button> 
 </form>
+{%for adoptante in info_adoptante %}
+<li>Nombre: {{info_adoptantes.nombre}} - Edad: {{info_adoptantes.edad}}</li>
 {%endblock contenido%}
