@@ -12,10 +12,10 @@ Adoptar un perro adulto es uno de los actos más nobles que una persona puede ha
 
 <p>{{mensaje}}</p>
 
-<form action="" method="POST">
+<form action={% url 'inicio:info_adoptantes' %} method="POST">
     {% csrf_token %}
     <table>
-        {{formulario}}
+        {{form}}
     </table>
     <button>Adoptá</button>
 </form>

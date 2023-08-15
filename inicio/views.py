@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from inicio.forms import info_adoptantes_formulario, buscar_adoptantes_fomulario, ModificarAdoptanteFormulario
 from inicio.models import Adoptantes
+from django.urls import reverse_lazy
 
 # Create your views here.
 
@@ -54,3 +55,9 @@ def modificar_adoptantes(request, adoptante_id):
     
     formulario = ModificarAdoptanteFormulario()
     return render(request, 'inicio/modificar_adoptantes.html', {'formulario': formulario})
+
+class CrearAdoptante(CreateView):
+    model = Adoptantes 
+    template_name = 'inicio/info_adoptantes.html'
+    fields = ['nombre', 'edad', 'fecha', 'mensaje','foto']
+    success_url = reverse_lazy('inicio:lista_adoptantes')
